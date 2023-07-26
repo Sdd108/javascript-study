@@ -14,7 +14,13 @@ function main() {
     // trySubstring(s1);
     // trySubstr(s1);
     // tryReplace(s1);
-    tryCaseConvert(s1);
+    // tryCaseConvert(s1);
+    // tryConcat();
+    // tryTrim();
+    // tryChatAt();
+    // tryCharCodeAt(s1);
+    trySplit();
+
 }
 
 main();
@@ -153,4 +159,69 @@ function tryCaseConvert(s) {
     console.log(s1);
     let s2 = s1.toLowerCase();
     console.log(s2);
+}
+
+/**
+ * concat() 连接两个或多个字符串
+ * @param {string} s 
+ */
+function tryConcat() {
+    let s1 = 'Hello! ';
+    let s2 = 'My name is Sruta';
+    let s3 = s1.concat(s2);
+    console.log(s3);
+
+    // concat() 方法可用于代替加运算符。下面两行是等效的
+    let text1 = "Hello" + " " + "World!";
+    let text2 = "Hello".concat(" ", "World!");
+    console.log(text1);
+    console.log(text2);
+}
+
+/**
+ * trim() 方法删除字符串两端的空白符
+ */
+function tryTrim() {
+    let s = '    Hello, World!   ';
+    console.log(s);
+    let s1 = s.trim()
+    console.log(s1);
+}
+
+/**
+ * 提取字符串字符的安全方法
+ */
+function tryChatAt() {
+    let s = 'This is a string.';
+    console.log(s[3]);
+    console.log(s.charAt(3));
+
+    console.log(s.charAt(53));  // 输出空字符串
+    console.log(s[53]);  // 输出 undefined
+}
+
+/**
+ * charCodeAt() 方法返回字符串中指定索引的字符 unicode 编码
+ * @param {string} s 
+ */
+function tryCharCodeAt(s) {
+    console.log(s.charAt(5));
+    console.log(s.charCodeAt(5));
+}
+
+/**
+ * 可以通过 split() 将字符串转换为数组
+ */
+function trySplit() {
+    let txt = "a,b,c,d,e";
+    let a1 = txt.split(',');
+    console.log(a1);
+
+    let txt2 = 'a b c d e';
+    let a2 = txt2.split(' ');
+    console.log(a2);
+
+    let txt3 = 'Hello';
+    let a3 = txt3.split('');
+    console.log(a3);
 }
