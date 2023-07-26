@@ -10,7 +10,11 @@ function main() {
     // tryLastIndexOf(s1);
     // trySearch(s1);
     // tryRegularExpression();
-    trySlice(s1);
+    // trySlice(s1);
+    // trySubstring(s1);
+    // trySubstr(s1);
+    // tryReplace(s1);
+    tryCaseConvert(s1);
 }
 
 main();
@@ -102,9 +106,51 @@ function trySlice(s) {
 }
 
 /**
+ * substring() 类似于 slice()。
+ * 不同之处在于 substring() 无法接受负的索引。
+ * @param {string} s 
+ */
+function trySubstring(s) {
+    console.log(s);
+    console.log(s.substring(3, 6));
+}
+
+/**
  * substr() 类似于 slice()，不同之处在于第二个参数规定被提取部分的长度。
+ * 【注意】这个方法已经弃用，不再建议使用。
  * @param {string} s 
  */
 function trySubstr(s) {
-    
+    console.log(s);
+    console.log(s.substr(4, 5));
+}
+
+/**
+ * replace() 方法用另一个值替换在字符串中指定的值
+ * replace() 方法不会改变调用它的字符串。它返回的是新字符串。
+ * 默认地，replace() 只替换首个匹配
+ * @param {string} s 
+ */
+function tryReplace(s) {
+    s = s + ' Another string.'
+    let newStr = s.replace('string', 'STRING');  // 需要用一个变量来接收替换后的新字符串，并不修改原字符串
+    console.log(s);
+    console.log(newStr);
+
+    // 如需执行大小写不敏感的替换，请使用正则表达式 /i（大小写不敏感）
+    let newStr2 = s.replace(/StRiNG/i, 'STRING');
+    console.log(newStr2);
+}
+
+/**
+ * 通过 toUpperCase() 把字符串转换为大写
+ * 通过 toLowerCase() 把字符串转换为小写
+ * @param {string} s 
+ */
+function tryCaseConvert(s) {
+    console.log(s);
+    let s1 = s.toUpperCase();
+    console.log(s1);
+    let s2 = s1.toLowerCase();
+    console.log(s2);
 }
