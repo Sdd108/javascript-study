@@ -19,7 +19,12 @@ function main() {
     // tryTrim();
     // tryChatAt();
     // tryCharCodeAt(s1);
-    trySplit();
+    // trySplit();
+    // tryMatch();
+    // tryIncludes();
+    // tryStartsWith(s1);
+    // tryEndsWith();
+    tryStringTemplate();
 
 }
 
@@ -224,4 +229,99 @@ function trySplit() {
     let txt3 = 'Hello';
     let a3 = txt3.split('');
     console.log(a3);
+}
+
+
+// JavaScript 字符串搜索
+
+
+/**
+ * match() 方法根据正则表达式在字符串中搜索匹配项，并将匹配项作为 Array 对象返回。
+ */
+function tryMatch() {
+    let text = "The rain in SPAIN stays mainly in the plain";
+    console.log(text.match(/ain/g));
+}
+
+
+/**
+ * 如果字符串包含指定值，includes() 方法返回 true。
+ */
+function tryIncludes() {
+    let text = "Hello world, welcome to the universe.";
+    console.log(text.includes('world'));
+    console.log(text.includes('world', 12));  // 从位置 12 开始搜索
+}
+
+
+/**
+ * 如果字符串以指定值开头，则 startsWith() 方法返回 true，否则返回 false
+ * string.startsWith(searchvalue, start)
+ * @param {string} s 
+ */
+function tryStartsWith(s) {
+    console.log(s.startsWith('Hello'));
+    console.log(s.startsWith('This'));  // 大小写敏感
+    console.log(s.startsWith('this'));
+}
+
+/**
+ * 如果字符串以指定值结尾，则 endsWith() 方法返回 true，否则返回 false
+ * string.endsWith(searchvalue, length)
+ */
+function tryEndsWith() {
+    let txt1 = 'Bill Gates';
+    console.log(txt1.endsWith('Gates'));
+
+    let txt2 = "Hello world, welcome to the universe.";
+    console.log(txt2.endsWith('world', 11));  // 11 是长度，而不是下标，从1开始而不是从0开始
+    console.log(txt2.endsWith('H', 1));
+}
+
+
+// JavaScript 字符串模板
+
+/**
+ * 
+ */
+function tryStringTemplate() {
+    // 模板字面量使用反引号 (``) 而不是引号 ("") 来定义字符串
+    let s1 = `Hello World!`;
+
+    // 通过使用模板字面量，您可以在字符串中同时使用单引号和双引号
+    let s2 = `He's often called "Johnny"`;
+
+    // 模板字面量允许多行字符串
+    let s3 = 
+    `
+    The quick
+    brown fox
+    jumps over
+    the lazy dog
+    `;
+    console.log(s3);
+
+    // 模板字面量提供了一种将变量和表达式插入字符串的简单方法。
+    let firstName = 'Zhipeng';
+    let lastName = 'LIU';
+    let greeting = `Hi, my name's ${firstName}, ${lastName}.`;  // Haha, I love this! 
+    console.log(greeting);
+
+    // 模板字面量允许字符串中的表达式
+    let price = 10;
+    let VAT = 0.25;
+    let total = `Total: ${(price * (1 + VAT)).toFixed(2)}`;
+    console.log(total);
+
+
+    let header = "Templates Literals";
+    let tags = ["template literals", "javascript", "es6"];
+
+    let html = `<h2>${header}</h2><ul>`;
+    for (const x of tags) {
+    html += `<li>${x}</li>`;
+    }
+
+    html += `</ul>`;
+    console.log(html);
 }
