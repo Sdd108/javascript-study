@@ -58,7 +58,7 @@ function tryObject() {
     console.log(camera['production year']);
     console.log('name' in camera);
 
-    for (let i of camera.owner.hobbies) {
+    for (let i of camera.owner.hobbies) {  // 遍历
         console.log(i);
     }
 
