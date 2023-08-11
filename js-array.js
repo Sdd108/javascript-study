@@ -4,7 +4,8 @@
 function main() {
     // tryArray();
     // arrayMethods();
-    arraySorting();
+    // arraySorting();
+    arrayIterating();
 }
 
 main();
@@ -188,5 +189,29 @@ function arraySorting() {
 
     // 使用 Math.max.apply 来查找数组中的最高值
     console.log(Math.max.apply(null, points1));
+    // 第一个参数（null）无关紧要。在本例中未使用它。下面会例子会给出相同的结果
+    console.log(Math.max.apply(Math, points1));
+    console.log(Math.max.apply(3, points1));
+    console.log(Math.max.apply(' ', points1));
+    // 在 JavaScript 严格模式下，如果 apply() 方法的第一个参数不是对象，则它将成为被调用函数的所有者（对象）。在“非严格”模式下，它成为全局对象。
+
     console.log(Math.min.apply(null, points1));
+
+}
+
+
+/**
+ * JavaScript 数组迭代
+ */
+function arrayIterating() {
+    // forEach() 方法为每个数组元素调用一次函数（回调函数）
+    let txt = '';
+    let numbers = [45, 4, 9, 16, 25];
+    numbers.forEach(myFun);
+
+    function myFun(value, index, array) {
+        txt = txt + value + "<br>";
+    }
+
+    console.log(txt);
 }
