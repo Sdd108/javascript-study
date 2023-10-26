@@ -5,7 +5,19 @@ function main() {
     // tryArray();
     // arrayMethods();
     // arraySorting();
-    arrayIterating();
+    // arrayIterating();
+    // tryArrayMap();
+    // tryArrayFilter();
+    // tryArrayReduce();
+    // tryArrayReduceRight();
+    // tryArrayEvery();
+    // tryArraySome();
+    // tryArrayIndexOf();
+    // tryArrayLastIndexOf();
+    // tryArrayFind();
+    // tryArrayFindIndex();
+    tryConstArray();
+
 }
 
 main();
@@ -214,4 +226,169 @@ function arrayIterating() {
     }
 
     console.log(txt);
+}
+
+
+/**
+ * Array.map()
+ * map() 方法通过对每个数组元素执行函数来创建新数组。
+ * map() 方法不会对没有值的数组元素执行函数。
+ * map() 方法不会更改原始数组。
+ */
+function tryArrayMap() {
+    let numbers = [2, 4, 23, undefined, 44, 29];
+    let numbers2 = numbers.map(myFun);
+
+    function myFun(value, index, array) {
+        return value * 2;
+    }
+    console.log(numbers2);
+}
+
+
+/**
+ * Array.filter()
+ * filter() 方法创建一个包含通过测试的数组元素的新数组。
+ */
+function tryArrayFilter() {
+    let numbers = [2, 4, 23, 44, 29];
+    let numbersOver18 = numbers.filter(myFun);
+
+    function myFun(value, index, array) {
+        return value > 18;
+    }
+    console.log(numbersOver18);
+}
+
+
+/**
+ * reduce() 方法在每个数组元素上运行函数，以生成（减少它）单个值。
+ * reduce() 方法在数组中从左到右工作。
+ * reduce() 方法不会减少原始数组。
+ */
+function tryArrayReduce() {
+    let numbers1 = [45, 4, 9, 16, 25];
+    let result = numbers1.reduce(myFun, 100);
+    console.log(result);
+
+    function myFun(total, value, index, array) {
+        console.log(total);
+        return total + value;
+    }
+}
+
+
+/**
+ * reduceRight() 方法在每个数组元素上运行函数，以生成（减少它）单个值。
+ * reduceRight() 方法在数组中从右到左工作。
+ * reduceRight() 方法不会减少原始数组。
+ */
+function tryArrayReduceRight() {
+    let numbers1 = [45, 4, 9, 16, 25];
+    let result = numbers1.reduceRight(myFun, 100);
+    console.log(result);
+
+    function myFun(total, value, index, array) {
+        console.log(total);
+        return total - value;
+    }
+}
+
+
+/**
+ * every() 方法检查所有数组值是否通过测试。
+ */
+function tryArrayEvery() {
+    let numbers = [45, 4, 9, 16, 25];
+    let allOver18 = numbers.every(myFunction);
+    console.log(allOver18);
+
+    function myFunction(value, index, array) {
+        return value > 18;
+    }
+}
+
+
+/**
+ * some() 方法检查某些数组值是否通过了测试。
+ */
+function tryArraySome() {
+    let numbers = [45, 4, 9, 16, 25];
+    let allOver18 = numbers.some(myFunction);
+    console.log(allOver18);
+
+    function myFunction(value, index, array) {
+        return value > 18;
+    }
+}
+
+
+/**
+ * indexOf() 方法在数组中搜索元素值并返回其位置。
+ * 第一个项目的位置是 0，第二个项目的位置是 1，以此类推。
+ * array.indexOf(item, start)
+ * start 可选。从哪里开始搜索（包含start）。负值将从结尾开始的给定位置开始，并搜索到结尾。
+ */
+function tryArrayIndexOf() {
+    let fruits = ["Apple", "Orange", "Apple", "Mango"];
+    let a = fruits.indexOf("Apple", 2);
+    console.log(a);
+}
+
+
+/**
+ * Array.lastIndexOf() 与 Array.indexOf() 类似，但是从数组结尾开始搜索。
+ * array.lastIndexOf(item, start)
+ * start 可选。从哪里开始搜索。负值将从结尾开始的给定位置开始，并搜索到开头。
+ */
+function tryArrayLastIndexOf() {
+    let fruits = ["Apple", "Orange", "Apple", "Mango"];
+    let a = fruits.lastIndexOf("Apple", -3);
+    console.log(a);
+}
+
+
+/**
+ * find() 方法返回通过测试函数的第一个数组元素的值。
+ */
+function tryArrayFind() {
+    let numbers = [4, 9, 16, 25, 29];
+    let a = numbers.find(myFun);
+    console.log(a);
+
+    function myFun(value, index, array) {
+        return value > 18;
+    }
+}
+
+
+/**
+ * findIndex() 方法返回通过测试函数的第一个数组元素的索引。
+ */
+function tryArrayFindIndex() {
+    let numbers = [4, 9, 16, 25, 29];
+    let a = numbers.findIndex(myFun);
+    console.log(a);
+
+    function myFun(value, index, array) {
+        return value > 18;
+    }
+}
+
+
+/**
+ * 数组不是常量，关键字 const 有一定误导性。
+ * 它不定义常量数组。它定义的是对数组的常量引用。
+ * 因此，我们仍然可以更改常量数组的元素。
+ */
+function tryConstArray() {
+    const cars = ["Saab", "Volvo", "BMW"];
+
+    // 您可以更改元素：
+    cars[0] = "Toyota";
+
+    // 您可以添加元素：
+    cars.push("Audi");
+
+    console.log(cars);
 }
